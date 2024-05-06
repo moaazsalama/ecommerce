@@ -1,0 +1,33 @@
+version: "3"
+services:
+  cart:
+    build: ./cart
+    container_name: cart
+    ports:
+      - "5003:5003"
+    networks:
+      - ecommerce-app
+    links:
+      - shopping_cart_db
+    restart: on-failure
+    depends_on:
+      - shopping_cart_db
+    volumes:
+      - ./cart:/app
+      - /app/node_modules
+      
+  shopping_cart_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27019:27017"
+    networks:
+      - ecommerce-app
+    volumes:
+      - shopping-cart-volume:/data/db
+networks:
+  ecommerce-app:
+    driver: bridge
+volumes:
+  
+  shopping-cart-volume:
+    driver: local
