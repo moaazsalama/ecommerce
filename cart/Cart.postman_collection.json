@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "bbc2358b-4905-4557-947c-cd8b02da1fef",
+		"name": "Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30784642"
+	},
+	"item": [
+		{
+			"name": "get Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJqdGkiOiJkODk0NTc4YS04ZGY3LTQ3YzgtOWUzNC02ZTEwNWE1YTZmZTAiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiIxNWM5MzlmYi03YTY3LTRhNzAtYjU5My0xY2MxMmYyM2YyNjMiLCJyb2xlcyI6IlVzZXIiLCJleHAiOjE3MTc0NTc5NDAsImlzcyI6IlNlY3VyZUFwaSIsImF1ZCI6IlNlY3VyZUFwaVVzZXIifQ.1viyehY20T4V_tuhO_hq6FHqNXypRtw0FDmgV3WhoAY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/cart",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add items/item to cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJqdGkiOiJkODk0NTc4YS04ZGY3LTQ3YzgtOWUzNC02ZTEwNWE1YTZmZTAiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiIxNWM5MzlmYi03YTY3LTRhNzAtYjU5My0xY2MxMmYyM2YyNjMiLCJyb2xlcyI6IlVzZXIiLCJleHAiOjE3MTc0NTc5NDAsImlzcyI6IlNlY3VyZUFwaSIsImF1ZCI6IlNlY3VyZUFwaVVzZXIifQ.1viyehY20T4V_tuhO_hq6FHqNXypRtw0FDmgV3WhoAY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"products\":[\n        {\n            \"productName\":\"Product 1\",\n            \"productId\":\"21\",\n            \"quantity\":3,\n            \"price\":100\n        },\n        {\n            \"productName\":\"Product 2\",\n            \"productId\":\"22\",\n            \"quantity\":1,\n            \"price\":200\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/cart",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "decrease item",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJqdGkiOiJkODk0NTc4YS04ZGY3LTQ3YzgtOWUzNC02ZTEwNWE1YTZmZTAiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiIxNWM5MzlmYi03YTY3LTRhNzAtYjU5My0xY2MxMmYyM2YyNjMiLCJyb2xlcyI6IlVzZXIiLCJleHAiOjE3MTc0NTc5NDAsImlzcyI6IlNlY3VyZUFwaSIsImF1ZCI6IlNlY3VyZUFwaVVzZXIifQ.1viyehY20T4V_tuhO_hq6FHqNXypRtw0FDmgV3WhoAY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"123123\",\n    \"products\":[\n        {\n            \"productName\":\"Product 1\",\n            \"productId\":\"21\",\n            \"quantity\":3,\n            \"price\":100\n        },\n        {\n            \"productName\":\"Product 2\",\n            \"productId\":\"22\",\n            \"quantity\":1,\n            \"price\":200\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api//cart/decrease/:productId",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"cart",
+						"decrease",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "increase item",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJqdGkiOiJkODk0NTc4YS04ZGY3LTQ3YzgtOWUzNC02ZTEwNWE1YTZmZTAiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiIxNWM5MzlmYi03YTY3LTRhNzAtYjU5My0xY2MxMmYyM2YyNjMiLCJyb2xlcyI6IlVzZXIiLCJleHAiOjE3MTc0NTc5NDAsImlzcyI6IlNlY3VyZUFwaSIsImF1ZCI6IlNlY3VyZUFwaVVzZXIifQ.1viyehY20T4V_tuhO_hq6FHqNXypRtw0FDmgV3WhoAY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"123123\",\n    \"products\":[\n        {\n            \"productName\":\"Product 1\",\n            \"productId\":\"21\",\n            \"quantity\":3,\n            \"price\":100\n        },\n        {\n            \"productName\":\"Product 2\",\n            \"productId\":\"22\",\n            \"quantity\":1,\n            \"price\":200\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api//cart/increase/:productId",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"cart",
+						"increase",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJqdGkiOiJkODk0NTc4YS04ZGY3LTQ3YzgtOWUzNC02ZTEwNWE1YTZmZTAiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiIxNWM5MzlmYi03YTY3LTRhNzAtYjU5My0xY2MxMmYyM2YyNjMiLCJyb2xlcyI6IlVzZXIiLCJleHAiOjE3MTc0NTc5NDAsImlzcyI6IlNlY3VyZUFwaSIsImF1ZCI6IlNlY3VyZUFwaVVzZXIifQ.1viyehY20T4V_tuhO_hq6FHqNXypRtw0FDmgV3WhoAY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"123123\",\n    \"products\":[\n        {\n            \"productName\":\"Product 1\",\n            \"productId\":\"21\",\n            \"quantity\":3,\n            \"price\":100\n        },\n        {\n            \"productName\":\"Product 2\",\n            \"productId\":\"22\",\n            \"quantity\":1,\n            \"price\":200\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api//cart/remove/:productId",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"cart",
+						"remove",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clear",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"123123\",\n    \"products\":[\n        {\n            \"productName\":\"Product 1\",\n            \"productId\":\"21\",\n            \"quantity\":3,\n            \"price\":100\n        },\n        {\n            \"productName\":\"Product 2\",\n            \"productId\":\"22\",\n            \"quantity\":1,\n            \"price\":200\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api//cart/remove/:userid/:productId",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"cart",
+						"remove",
+						":userid",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "userid",
+							"value": "123123"
+						},
+						{
+							"key": "productId",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdHJpbmciLCJqdGkiOiJkODk0NTc4YS04ZGY3LTQ3YzgtOWUzNC02ZTEwNWE1YTZmZTAiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJ1aWQiOiIxNWM5MzlmYi03YTY3LTRhNzAtYjU5My0xY2MxMmYyM2YyNjMiLCJyb2xlcyI6IlVzZXIiLCJleHAiOjE3MTc0NTc5NDAsImlzcyI6IlNlY3VyZUFwaSIsImF1ZCI6IlNlY3VyZUFwaVVzZXIifQ.1viyehY20T4V_tuhO_hq6FHqNXypRtw0FDmgV3WhoAY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
